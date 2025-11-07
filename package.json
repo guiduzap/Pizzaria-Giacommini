@@ -11,9 +11,9 @@
   "author": "Gabriel, Italo, Matheus, Joaquim, Pedro",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^24.5.2",
+    "@types/node": "^24.10.0",
     "@types/readline-sync": "^1.4.8",
     "ts-node": "^10.9.2",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.3"
   }
 }
