@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Pizzaria Giacommini - React (CDN)</title>
+    <style>body{font-family:Arial;padding:12px}button{margin-top:6px}</style>
+    <script crossorigin src="https:
+    <script crossorigin src="https:
+    <script src="https:
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel" data-presets="react">
+      const { useState, useEffect } = React;
+
+      function App(){
+        const [clientes, setClientes] = useState([]);
+        const [produtos, setProdutos] = useState([]);
+        const [pedidos, setPedidos] = useState([]);
+
+        useEffect(()=>{ loadAll(); }, []);
+        async function loadAll(){
+          setClientes(await (await fetch('/api/clientes')).json());
+          setProdutos(await (await fetch('/api/produtos')).json());
+          setPedidos(await (await fetch('/api/pedidos')).json());
+        }
+
+        return (
+          <div>
+            <h1>Pizzaria (React CDN)</h1>
+            <section>
+              <h2>Clientes</h2>
+              <ul>{clientes.map(c=> <li key={c.id}>#{c.id} {c.nome}</li>)}</ul>
+            </section>
+            <section>
+              <h2>Produtos</h2>
+              <ul>{produtos.map(p=> <li key={p.id}>#{p.id} {p.nome} — R${p.valor.toFixed(2)}</li>)}</ul>
+            </section>
+            <section>
+              <h2>Pedidos</h2>
+              <ul>{pedidos.map((pd, i)=> <li key={i}>{pd.data} — Cliente #{pd.idcliente} Produto #{pd.idproduto}</li>)}</ul>
+            </section>
+          </div>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+    </script>
+  </body>
+</html>
+

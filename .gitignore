@@ -4,7 +4,9 @@ npm-debug.log
 
 # Arquivos gerados pelo TypeScript
 # Ignora todos os arquivos .js e os 'map' de debug.
-*.js
+# # *.js
+!public/*.js
+!public/*.js
 *.js.map
 
 # Diretório de build (prática comum para produção)

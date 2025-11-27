@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+  <rect width="600" height="600" fill="#fff8f0"/>
+  <g transform="translate(80,60)">
+    <rect x="120" y="160" width="240" height="160" rx="24" fill="#FCE8C9" stroke="#D32F2F" stroke-width="6"/>
+    <ellipse cx="240" cy="330" rx="120" ry="24" fill="#E8C88A" opacity="0.9"/>
+    <text x="240" y="220" font-size="28" font-family="Arial, sans-serif" text-anchor="middle" fill="#9A0007">Pudim de Leite</text>
+  </g>
+</svg>

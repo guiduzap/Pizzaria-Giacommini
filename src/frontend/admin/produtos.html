@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria Giacommini - Gerenciar Produtos</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link href="https:
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 style="color: var(--primary);">Pizzaria Giacommini - Gerenciar Produtos</h1>
+            <a href="index.html" class="btn-secondary" style="float: right; text-decoration: none; padding: 5px 10px;">Voltar ao Painel</a>
+        </header>
+        <script>
+            if (!localStorage.getItem('adminToken')) {
+                window.location.href = 'login.html';
+            }
+        </script>
+
+        <div class="three-box-layout">
+            
+            <div class="left-side" style="width: 100%;">
+                
+                <section class="card form-section">
+                    <div class="form-header-top">
+                        <h2>Novo Produto</h2>
+                        <button type="submit" form="produtoForm" class="btn btn-primary">Salvar Produto</button>
+                    </div>
+                    <form id="produtoForm">
+                        <div class="form-row-compact">
+                            <div class="input-group">
+                                <label for="nome">Nome do Produto</label>
+                                <input type="text" id="nome" name="nome" placeholder="Ex: Pizza Calabresa" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="tipo">Tipo</label>
+                                <select id="tipo" name="tipo" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="pizza">Pizza</option>
+                                    <option value="bebida">Bebida</option>
+                                    <option value="sobremesa">Sobremesa</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="valor">Valor (R$)</label>
+                                <input type="number" id="valor" name="valor" step="0.01" placeholder="0.00" required>
+                            </div>
+                        </div>
+                        <div class="form-row-compact">
+                            <div class="input-group">
+                                <label for="imagem">Imagem (Upload)</label>
+                                <input type="file" id="imagem" name="image" accept="image/*">
+                            </div>
+                        </div>
+                    </form>
+                </section>
+
+<section class="card list-section">
+                    <div class="list-header">
+                        <h2>Produtos Cadastrados</h2>
+                        <div class="actions-box">
+                            <button id="btnEdit" class="btn btn-secondary" disabled>Editar</button>
+                            <button id="btnDelete" class="btn btn-secondary" disabled>Remover</button>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="produtosTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Imagem</th>
+                                    <th>Tipo</th>
+                                    <th>Nome</th>
+                                    <th>Valor (R$)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+<div id="editModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Editar Produto</h2>
+                <form id="editForm">
+                    <input type="hidden" id="editId" name="id">
+                    <div class="form-grid-modal">
+                        <div class="input-group">
+                            <label for="editNome">Nome</label>
+                            <input type="text" id="editNome" name="nome" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="editTipo">Tipo</label>
+                            <select id="editTipo" name="tipo" required>
+                                <option value="pizza">Pizza</option>
+                                <option value="bebida">Bebida</option>
+                                <option value="sobremesa">Sobremesa</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label for="editValor">Valor</label>
+                            <input type="number" id="editValor" name="valor" step="0.01" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="editImagem">Nova Imagem (Opcional)</label>
+                            <input type="file" id="editImagem" name="image" accept="image/*">
+                        </div>
+                    </div>
+                    <div class="modal-buttons">
+                        <button type="button" class="btn btn-secondary" id="btnCancelar">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+        </footer>
+    </div>
+
+    <script src="static/produtos.js"></script>
+</body>
+</html>
+

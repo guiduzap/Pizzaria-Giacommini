@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Pizzaria Giacommini</title>
+    <link rel="stylesheet" href="static/style.css">
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #f4f4f9; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .dashboard-card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; width: 300px; }
+        .btn-menu { display: block; width: 100%; padding: 10px; margin: 10px 0; background: #e74c3c; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; }
+        .btn-menu:hover { background: #c0392b; }
+    </style>
+</head>
+<body>
+    <div class="dashboard-card">
+        <h1>Painel Admin</h1>
+        <p>Bem-vindo, Administrador</p>
+        <a href="clientes.html" class="btn-menu">Gerenciar Clientes</a>
+        <a href="produtos.html" class="btn-menu">Gerenciar Produtos</a>
+        <a href="pedidos.html" class="btn-menu">Gerenciar Pedidos</a>
+        <button onclick="logout()" class="btn-menu" style="background: #7f8c8d;">Sair</button>
+    </div>
+    <script>
+        if (!localStorage.getItem('adminToken')) {
+            window.location.href = 'login.html';
+        }
+        function logout() {
+            localStorage.removeItem('adminToken');
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>

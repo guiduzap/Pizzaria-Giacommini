@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240">
+  <rect width="100%" height="100%" fill="#E3F2FD"/>
+  <rect x="30" y="30" width="120" height="180" rx="12" fill="#0288D1"/>
+  <text x="170" y="90" font-family="Segoe UI, Arial" font-size="22" fill="#023F6B">Refrigerante</text>
+  <text x="170" y="130" font-family="Segoe UI, Arial" font-size="18" fill="#023F6B">2 L</text>
+</svg>

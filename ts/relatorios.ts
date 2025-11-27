@@ -1,5 +1,5 @@
-import { lerCSV } from "./io.js";
-import { ARQ } from "./paths.js";
+import { lerCSV } from "./io";
+import { ARQ } from "./paths";
 
 export async function relatorioVendasPorProduto() {
   const pedidos = await lerCSV(ARQ.pedidos);

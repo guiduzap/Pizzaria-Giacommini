@@ -1,8 +1,8 @@
 import * as readline from "readline";
-import { ARQ } from "./paths.js";
-import { Produto } from "./types.js";
-import { lerCSV, adicionarLinha } from "./io.js";
-import { validarValor } from "./extras.js";
+import { ARQ } from "./paths";
+import { Produto } from "./types";
+import { lerCSV, adicionarLinha } from "./io";
+import { validarValor } from "./extras";
 
 let iProduto = 1;
 
@@ -40,7 +40,7 @@ export async function cadastrarProduto(rl: readline.Interface, voltar: () => voi
           valor: parseFloat(valorStr)
         };
 
-        await adicionarLinha(ARQ.produtos, `${produto.id},${produto.tipo},${produto.nome},${produto.valor.toFixed(2)}`);
+        await adicionarLinha(ARQ.produtos, `${produto.id},${produto.tipo},${produto.nome},${produto.valor.toFixed(2)},`);
         console.log('\nProduto cadastrado com sucesso!');
         voltar();
       });

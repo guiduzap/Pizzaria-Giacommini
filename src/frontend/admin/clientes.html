@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria Giacommini - Cadastrar Clientes</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link href="https:
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 style="color: var(--primary);">Pizzaria Giacommini - Cadastrar Clientes</h1>
+            <a href="index.html" class="btn-secondary" style="float: right; text-decoration: none; padding: 5px 10px;">Voltar ao Painel</a>
+        </header>
+        <script>
+            if (!localStorage.getItem('adminToken')) {
+                window.location.href = 'login.html';
+            }
+        </script>
+
+<div class="three-box-layout">
+            
+            <div class="left-side" style="width: 100%;">
+                
+                <section class="card form-section">
+                    <div class="form-header-top">
+                        <h2>Novo Cadastro</h2>
+                        <button type="submit" form="cadastroForm" class="btn btn-primary">Cadastrar</button>
+                    </div>
+                    <form id="cadastroForm">
+                        
+                        <div class="form-row-compact">
+                            <div class="input-group">
+                                <label for="nome">Nome</label>
+                                <input type="text" id="nome" name="nome" placeholder="Ex: João" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="sobrenome">Sobrenome</label>
+                                <input type="text" id="sobrenome" name="sobrenome" placeholder="Ex: Silva">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row-compact">
+                            <div class="input-group">
+                                <label for="telefone">N° Telefone</label>
+                                <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999">
+                            </div>
+                            <div class="input-group">
+                                <label for="email">E-mail</label>
+                                <input type="email" id="email" name="email" placeholder="exemplo@email.com">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row-compact">
+                            <div class="input-group">
+                                <label for="cep">CEP</label>
+                                <input type="text" id="cep" name="cep" placeholder="12345-678">
+                            </div>
+                            <div class="input-group">
+                                <label for="endereco">Endereço</label>
+                                <input type="text" id="endereco" name="endereco" placeholder="Rua, Número">
+                            </div>
+                        </div>
+                    </form>
+                </section>
+
+<section class="card list-section">
+                    <div class="list-header">
+                        <h2>Clientes Cadastrados</h2>
+                        <div class="actions-box">
+                            <div class="search-group">
+                                <div class="search-box">
+                                    <input type="text" id="searchNome" placeholder="Buscar por Nome...">
+                                    <button id="btnClearNome" class="btn-icon" style="display: none;" title="Limpar Filtro">✕</button>
+                                    <button id="btnSearchNome" class="btn-secondary">Buscar Nome</button>
+                                </div>
+                                
+                            </div>
+                            <button id="btnExport" class="btn-secondary">Exportar CSV</button>
+                            <button id="btnEdit" class="btn btn-secondary" disabled>Editar</button>
+                            <button id="btnDelete" class="btn btn-secondary" disabled>Remover</button>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="clientesTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nome</th>
+                                    <th>Sobrenome</th>
+
+<th>N° Telefone</th>
+                                    <th>E-mail</th>
+                                    <th>CEP</th>
+                                    <th>Endereço</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+<div id="editModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Editar Cliente</h2>
+                <form id="editForm">
+                    <input type="hidden" id="editId" name="id">
+                    <div class="form-grid-modal">
+                        <div class="input-group">
+                            <label for="editNome">Nome</label>
+                            <input type="text" id="editNome" name="nome" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="editSobrenome">Sobrenome</label>
+                            <input type="text" id="editSobrenome" name="sobrenome">
+                        </div>
+                        <div class="input-group">
+                            <label for="editTelefone">N° Telefone</label>
+                            <input type="tel" id="editTelefone" name="telefone">
+                        </div>
+                        <div class="input-group">
+                            <label for="editEmail">E-mail</label>
+                            <input type="email" id="editEmail" name="email">
+                        </div>
+                        <div class="input-group">
+                            <label for="editCep">CEP</label>
+                            <input type="text" id="editCep" name="cep">
+                        </div>
+                        <div class="input-group">
+                            <label for="editEndereco">Endereço</label>
+                            <input type="text" id="editEndereco" name="endereco">
+                        </div>
+                        
+                    </div>
+                    <div class="modal-buttons">
+                        <button type="button" class="btn btn-secondary" id="btnCancelar">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <footer>
+        </footer>
+    </div>
+
+    <script src="static/clientes.js"></script>
+</body>
+</html>
+

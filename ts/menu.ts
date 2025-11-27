@@ -1,8 +1,7 @@
-// ts/index.ts
+
 import * as readline from 'readline';
 import { preparaAmbiente } from './io';
 import { cadastrarCliente, listarClientes } from './clientes';
-
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
@@ -58,4 +57,4 @@ function mostrarMenuCad() {
 }
 
 mostrarMenu();
-
+

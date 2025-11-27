@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria Giacommini - Gerenciar Pedidos</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link href="https:
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 style="color: var(--primary);">Pizzaria Giacommini - Gerenciar Pedidos</h1>
+            <a href="index.html" class="btn-secondary" style="float: right; text-decoration: none; padding: 5px 10px;">Voltar ao Painel</a>
+        </header>
+        <script>
+            if (!localStorage.getItem('adminToken')) {
+                window.location.href = 'login.html';
+            }
+        </script>
+
+        <div class="three-box-layout">
+            <div class="left-side" style="width: 100%;">
+                <section class="card list-section">
+                    <div class="list-header">
+                        <h2>Pedidos Recentes</h2>
+                        <div class="actions-box">
+                            <button id="btnRefresh" class="btn-secondary">Atualizar</button>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table id="pedidosTable">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Data</th>
+                                    <th>Cliente</th>
+                                    <th>Produto</th>
+                                    <th>Total (R$)</th>
+                                    <th>Pagamento</th>
+                                    <th>Status</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <footer>
+        </footer>
+    </div>
+
+    <script src="static/pedidos.js"></script>
+</body>
+</html>
+

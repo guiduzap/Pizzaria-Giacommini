@@ -1,7 +1,7 @@
 import * as readline from "readline";
-import { ARQ } from "./paths.js";
-import { Pedido } from "./types.js";
-import { lerCSV, adicionarLinha } from "./io.js";
+import { ARQ } from "./paths";
+import { Pedido } from "./types";
+import { lerCSV, adicionarLinha } from "./io";
 
 export async function cadastrarPedido(rl: readline.Interface, voltar: () => void) {
   const clientes = await lerCSV(ARQ.clientes);

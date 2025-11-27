@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Admin | Pizzaria Giacommini</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https:
+    <link href="https:
+    <script>
+      
+      if (!localStorage.getItem('admin_token')) window.location.replace('/login.html');
+    </script>
+        <style>
+            
+            body.admin .btn-primary {
+                background: var(--secondary-light);
+                color: var(--text-main);
+                box-shadow: none;
+                border: 1px solid var(--secondary);
+            }
+            body.admin .btn-primary:hover { background: var(--secondary); }
+            body.admin .btn-outline { color: var(--text-light); border-color: rgba(255,255,255,0.6); }
+        </style>
+</head>
+<body class="admin">
+
+<nav class="navbar" style="background: var(--bg-contrast); color: white;">
+        <div class="container nav-content">
+            <a href="/admin.html" class="brand" style="color: white;">
+                <i class="fas fa-chart-line"></i> Painel Admin
+            </a>
+            <div class="nav-links">
+                <a href="/" class="nav-link" style="color: rgba(255,255,255,0.8);">Ver Site</a>
+                <a href="#" onclick="localStorage.removeItem('admin_token'); window.location.href='/login.html'" class="btn btn-outline" style="color: white; border-color: white;">Sair</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="margin-top: 40px; margin-bottom: 80px;">
+
+<div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-bottom: 40px;">
+            <div class="card" style="padding: 24px; border-left: 4px solid var(--primary);">
+                <h4 style="margin:0; color: var(--text-muted);">Vendas Totais</h4>
+                <div id="stat-total-vendas" style="font-size: 2rem; font-weight: bold;">R$ 0,00</div>
+            </div>
+            <div class="card" style="padding: 24px; border-left: 4px solid var(--secondary);">
+                <h4 style="margin:0; color: var(--text-muted);">Pedidos Realizados</h4>
+                <div id="stat-total-pedidos" style="font-size: 2rem; font-weight: bold;">0</div>
+            </div>
+        </div>
+
+        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 24px;">
+
+<div class="card" style="grid-column: 1 / -1;">
+                <div class="card-body">
+                    <h3><i class="fas fa-bell"></i> Pedidos Recentes</h3>
+                    <ul id="lista-pedidos-admin" style="max-height: 400px; overflow-y: auto;">
+                        <li class="text-center" style="padding: 20px; color: var(--text-muted);">Carregando pedidos...</li>
+                    </ul>
+                </div>
+            </div>
+
+<div class="card">
+                <div class="card-body">
+                    <h3><i class="fas fa-plus-circle"></i> Novo Produto</h3>
+                    <form id="form-produto-admin">
+                        <div class="form-group">
+                            <select name="tipo" class="form-input">
+                                <option value="pizza">Pizza</option>
+                                <option value="bebida">Bebida</option>
+                                <option value="sobremesa">Sobremesa</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input name="nome" class="form-input" placeholder="Nome do produto" required />
+                        </div>
+                        <div class="form-group">
+                            <div class="flex">
+                                <input name="valor" class="form-input" placeholder="Valor (0.00)" type="number" step="0.01" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input name="image" id="prod-image" type="file" accept="image/*" class="form-input" />
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%;" type="submit">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+
+<div class="card">
+                <div class="card-body">
+                    <h3><i class="fas fa-list"></i> Produtos Cadastrados</h3>
+                    <div id="lista-produtos-admin" style="max-height: 400px; overflow-y: auto;"></div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="toast" style="position: fixed; bottom: 100px; left: 50%; transform: translateX(-50%); background: var(--bg-contrast); color: white; padding: 12px 24px; border-radius: 50px; opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 2000;">
+        Ação realizada!
+    </div>
+
+    <script src="toast.js"></script>
+    <script src="admin.js"></script>
+    <script>
+        
+        async function loadDashboard() {
+            try {
+                const res = await fetch('/api/relatorios/dashboard');
+                const data = await res.json();
+                document.getElementById('stat-total-vendas').innerText = `R$ ${data.totalVendas.toFixed(2)}`;
+                document.getElementById('stat-total-pedidos').innerText = data.totalPedidos;
+            } catch(e) { console.error(e); }
+        }
+        loadDashboard();
+    </script>
+</body>
+</html>
+

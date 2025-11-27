@@ -1,9 +1,9 @@
 import * as readline from "readline";
-import { preparaAmbiente } from "./io.js";
-import { cadastrarCliente, listarClientes } from "./clientes.js";
-import { cadastrarProduto, listarProdutos } from "./produtos.js";
-import { cadastrarPedido, listarPedidos } from "./pedidos.js";
-import { relatorioVendasPorProduto } from "./relatorios.js";
+import { preparaAmbiente } from "./io";
+import { cadastrarCliente, listarClientes } from "./clientes";
+import { cadastrarProduto, listarProdutos } from "./produtos";
+import { cadastrarPedido, listarPedidos } from "./pedidos";
+import { relatorioVendasPorProduto } from "./relatorios";
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 

@@ -1,1 +1,13 @@
-id,tipo,nome,valor
+id,tipo,nome,valor,imagem
+1,pizza,Pizza Calabresa,45.00,/img/calabresa.png
+2,pizza,Pizza Margherita,42.00,/img/margherita.png
+3,pizza,Pizza Quatro Queijos,48.00,/img/quatro_queijos.png
+6,pizza,Pizza Chocolate com Morango,55.00,/img/chocolate_morango.png
+7,pizza,Pizza Banana com Canela,40.00,/img/banana_canela.png
+8,bebida,Refrigerante 2L,10.00,/img/refrigerante_2l.svg
+9,bebida,Refrigerante Lata,6.00,/img/refrigerante_lata.svg
+10,bebida,Suco,7.00,/img/suco.svg
+11,bebida,Água,3.00,/img/agua.svg
+12,sobremesa,Torta de Limão,18.00,/img/torta_limao.jpg
+13,sobremesa,Torta de Maracujá,18.00,/img/torta_maracuja.jpg
+14,sobremesa,Mousse de Chocolate,16.00,/img/mousse_chocolate.png

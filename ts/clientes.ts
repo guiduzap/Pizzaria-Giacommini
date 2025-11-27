@@ -1,14 +1,11 @@
 import * as readline from "readline";
-import { ARQ, CAB } from "./paths.js";
-import { Cliente } from "./types.js";
-import { lerCSV, escreverCSV, adicionarLinha } from "./io.js";
-import { validarTelefone } from "./extras.js";
+import { ARQ, CAB } from "./paths";
+import { Cliente } from "./types";
+import { lerCSV, escreverCSV, adicionarLinha } from "./io";
+import { validarTelefone } from "./extras";
 
 let iCliente = 1;
 
-/**
- * Atualiza o contador de ID do cliente com base nos registros do CSV.
- */
 export async function inicializaIdClientes() {
   try {
     const linhas = await lerCSV(ARQ.clientes);
@@ -19,9 +16,6 @@ export async function inicializaIdClientes() {
   }
 }
 
-/**
- * Cadastra um novo cliente via terminal.
- */
 export async function cadastrarCliente(rl: readline.Interface, voltar: () => void) {
   await inicializaIdClientes();
 
@@ -52,9 +46,6 @@ export async function cadastrarCliente(rl: readline.Interface, voltar: () => voi
   });
 }
 
-/**
- * Lista todos os clientes do arquivo.
- */
 export async function listarClientes() {
   const linhas = await lerCSV(ARQ.clientes);
   if (linhas.length === 0) {
@@ -69,9 +60,6 @@ export async function listarClientes() {
   }
 }
 
-/**
- * Busca um cliente pelo ID.
- */
 export async function buscarClientePorId(id: number): Promise<Cliente | null> {
   const linhas = await lerCSV(ARQ.clientes);
   for (const linha of linhas) {
@@ -83,9 +71,6 @@ export async function buscarClientePorId(id: number): Promise<Cliente | null> {
   return null;
 }
 
-/**
- * Atualiza dados de um cliente já existente.
- */
 export async function atualizarCliente(rl: readline.Interface, voltar: () => void) {
   const linhas = await lerCSV(ARQ.clientes);
   if (linhas.length === 0) {
@@ -125,9 +110,6 @@ export async function atualizarCliente(rl: readline.Interface, voltar: () => voi
   });
 }
 
-/**
- * Exclui um cliente existente pelo ID.
- */
 export async function excluirCliente(rl: readline.Interface, voltar: () => void) {
   const linhas = await lerCSV(ARQ.clientes);
   if (linhas.length === 0) {
@@ -150,4 +132,4 @@ export async function excluirCliente(rl: readline.Interface, voltar: () => void)
     voltar();
   });
 }
-
+

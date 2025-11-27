@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Pizzaria Giacommini</title>
+    <link rel="preconnect" href="https:
+    <link rel="preconnect" href="https:
+    <link href="https:
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="home">
+    <nav class="site-nav">
+      <div class="nav-inner">
+        <div class="brand"><h3>Pizzaria Giacommini</h3></div>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/client.html">Cliente</a>
+          <a href="/login.html">Fazer Login</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-inner">
+        <h1>Pizzaria Giacommini</h1>
+        <p class="tag">Sabor artesanal. Entrega rápida. Amor em cada fatia.</p>
+        <div class="cta-row">
+          <a class="btn primary" href="/client.html">Ver Cardápio</a>
+          <a class="btn outline" href="/client.html#signup">Cadastrar Cliente</a>
+          <a class="btn ghost" href="#benefits">Benefícios</a>
+        </div>
+      </div>
+    </header>
+
+      <section class="menu-preview">
+        <h2>Cardápio em destaque</h2>
+        <div id="preview-list" class="preview-list"></div>
+        <div class="see-more"><a class="btn primary" href="/client.html">Ver todo o cardápio</a></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; Pizzaria Giacommini</p>
+    </footer>
+
+    <script>
+      async function loadPreview(){
+        try{
+          const r = await fetch('/api/produtos');
+          if(!r.ok) return;
+          const produtos = await r.json();
+          const list = document.getElementById('preview-list');
+          list.innerHTML = produtos.slice(0,6).map(p => `
+            <div class="preview-card">
+              ${p.imagem ? `<img src="${p.imagem}" alt="${p.nome}"/>` : ''}
+              <div class="meta"><strong>${p.nome}</strong><span>R$${p.valor.toFixed(2)}</span></div>
+            </div>
+          `).join('\n');
+        }catch(e){console.error(e)}
+      }
+      loadPreview();
+    </script>
+  </body>
+</html>
+

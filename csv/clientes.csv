@@ -1,1 +1,4 @@
-id,nome,telefone,endereco
+id,nome,telefone,email,endereco,senha
+
+1,teste,11901234567,teste@gmail.com,rua 01, bairo fulano de tal, numero 01,teste
+2,giacommni-adm,23414123423423,seu@email.com,rua 01,1234
